@@ -1,5 +1,7 @@
 package schultz.dustin.io.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 
 import org.slf4j.Logger;
@@ -29,7 +31,13 @@ public class UploadController {
 			@RequestParam("start") int start,
 			@RequestParam("end") int end,
 			@RequestParam("speed") int speed,
-			@RequestParam("repeat") boolean repeat) {
+			@RequestParam("repeat") boolean repeat) throws IOException {
+		File videoFile = new File(location + "/" + System
+				.currentTimeMillis() + ".mp4");
+		file.transferTo(videoFile);
+		
+		log.info("Saved file to {}", videoFile.getAbsolutePath());
+		
 		return "";
 	}
 }
