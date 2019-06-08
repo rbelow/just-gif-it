@@ -1,0 +1,51 @@
+# Cascading resolution configuration order:
+# 1. Command line arguments
+# 2. Inline JSON in SPRING_APPLICATION_JSON=<JSON_STRING>
+# 3. StandardServletEnvironment
+#   a. ServletConfig init parameters
+#   b. ServletContext init parameters
+#   c. JNDI attributes @see https://stackoverflow.com/questions/4365621/what-is-jndi-what-is-its-basic-use-when-is-it-used
+#   d. System.getProperties()
+#   e. OS environment vars
+# 4. RandomValuePropertySource
+# 5. application.properties / YAML
+#   a. application-{profile}.*
+#   b. application.*
+#   c. $CWD/config AND $CWD + classpath:/config AND classpath:
+# 6. @PropertySource
+# 7. SpringApplication.setDefaultProperties(...)
+
+# Configure auto-configured MultipartConfigElement
+
+multipart:
+  maxFileSize: 50MB
+  maxRequestSize: 50MB
+  location: ${java.io.tmpdir}
+
+spring:
+  mvc:
+    favicon:
+      enabled: false
+#  servlet:
+#    multipart:
+#      location: ${java.io.tmpdir}
+#      max-file-size: 50MB
+#      max-request-size: 50MB
+
+# Configure logging
+
+#debug: true
+
+#logging:
+#  level.: DEBUG
+
+logging:
+  level:
+    org:
+      springframework: DEBUG
+
+# Configure Just Gif It custom configuration
+
+com:
+  justgifit:
+    gif-location: ${java.io.tmpdir}/gif
