@@ -46,7 +46,7 @@ spring:
 
 logging:
   level:
-    web: DEBUG
+    web: INFO
 
 # Configure Just Gif It custom configuration
 
