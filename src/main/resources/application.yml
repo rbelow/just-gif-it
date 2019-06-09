@@ -39,10 +39,14 @@ spring:
 #logging:
 #  level.: DEBUG
 
+#logging:
+#  level:
+#    org:
+#      springframework: INFO
+
 logging:
   level:
-    org:
-      springframework: DEBUG
+    web: DEBUG
 
 # Configure Just Gif It custom configuration
 
