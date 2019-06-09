@@ -4,6 +4,8 @@ mvn clean package
 
 java -jar just-gif-it-0.0.1-SNAPSHOT.jar --debug
 
+curl -u user:4d023b84-2e59-4a9e-bb11-267056b9ea3e http://localhost:8080/health
+
 docker ps
 
 ./mvnw docker:build
